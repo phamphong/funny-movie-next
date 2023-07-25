@@ -1,0 +1,32 @@
+version: "3"
+volumes:
+  docker:
+
+
+services:
+  database:
+    image: mongo
+    ports:
+      - 27017:27017
+    volumes:
+      - docker:/data/db
+
+  next-app:
+    container_name: next-app
+    build:
+      context: ./
+      dockerfile: dev.Dockerfile
+
+    # Set environment variables directly in the docker-compose file
+    environment:
+      NODE_ENV: development
+      MONGODB_URI: mongodb://database:27017/funny-movie
+
+    # Set envrionment variables based on the .env file
+    env_file:
+      - .env.development
+    restart: always
+    ports:
+      - 3000:3000
+    depends_on:
+      - database
