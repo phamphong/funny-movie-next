@@ -118,6 +118,7 @@ To backup and restore data please refer [here](https://www.mongodb.com/docs/manu
 Non-logged in users can:
   - See the movie list right at the homepage
   - Log in by entering your email and password in the form in the header > click login. An account that does not exist will automatically register and log in.
+
 Logged in users can:
   - See the movie list right at the homepage
   - Log out by clicking the logout button in the header
