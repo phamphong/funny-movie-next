@@ -70,6 +70,7 @@ To ensure the security of the production environment, you should copy the file `
 #### Setting Database
 -   Docker: database is configured in `docker-compose.dev.yml` and `docker-compose.prod.yml`
 -   Local: please install [mongodb](https://www.mongodb.com/docs/manual/installation/) on local computer or use cloud service
+
 Change database connection information by changing `MONGODB_URI` variable in [.env](#configuration) file. In case of using docker-compose, change this value in the file `docker-compose.dev.yml` or `docker-compose.prod.yml`
 
 #### Running migrations
@@ -112,6 +113,7 @@ To backup and restore data please refer [here](https://www.mongodb.com/docs/manu
 -   Test separately, need to launch server before:
     - Test: `yarn e2e`
     - Test (command line only): `yarn e2e:headless`
+
 **This end-to-end test is aimed at the development environment, it will change the data in the database. Please do not use in stable environment.**
 ## Usage
 
