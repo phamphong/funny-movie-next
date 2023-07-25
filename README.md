@@ -62,6 +62,7 @@ Install [Docker Desktop](https://docs.docker.com/get-docker) for Mac, Windows, o
 Change the configuration by modifying the file:
 - Development: `.env.development`
 - Production: `.env.production`
+Config Google API KEY by replace `GOOGLE_API_KEY` variable in [.env](#configuration) file.
 To ensure the security of the production environment, you should copy the file `.env.production` to `.env.local` or `.env.production.local`, Git will ignore these files.
 
 ## Database Setup
@@ -69,7 +70,7 @@ To ensure the security of the production environment, you should copy the file `
 #### Setting Database
 -   Docker: database is configured in `docker-compose.dev.yml` and `docker-compose.prod.yml`
 -   Local: please install [mongodb](https://www.mongodb.com/docs/manual/installation/) on local computer or use cloud service
-change database connection information by changing `MONGODB_URI` variable in [.env](#configuration) file. In case of using docker-compose, change this value in the file `docker-compose.dev.yml` or `docker-compose.prod.yml`
+Change database connection information by changing `MONGODB_URI` variable in [.env](#configuration) file. In case of using docker-compose, change this value in the file `docker-compose.dev.yml` or `docker-compose.prod.yml`
 
 #### Running migrations
 The application can run without data migration. Or you can run cypress test for development environment, data will be automatically deleted and added during testing.
