@@ -116,13 +116,13 @@ To backup and restore data please refer [here](https://www.mongodb.com/docs/manu
 ## Usage
 
 Non-logged in users can:
-  - See the movie list right at the homepage
-  - Log in by entering your email and password in the form in the header > click login. An account that does not exist will automatically register and log in.
+-    See the movie list right at the homepage
+-    Log in by entering your email and password in the form in the header > click login. An account that does not exist will automatically register and log in.
 
 Logged in users can:
-  - See the movie list right at the homepage
-  - Log out by clicking the logout button in the header
-  - Share the movie by clicking the "Share a movie" button in the header bar. When the sharing form appears, enter the url of the youtube video in the "Share URL" input box > press the "Share" button. URLs other than youtube videos will be validated. Videos that do not exist will be successfully shared, existing videos will be reported as duplicates.
-  - When a new movie is shared, a notification about it will appear in the lower right corner of the screen.
+-    See the movie list right at the homepage
+-    Log out by clicking the logout button in the header
+-    Share the movie by clicking the "Share a movie" button in the header bar. When the sharing form appears, enter the url of the youtube video in the "Share URL" input box > press the "Share" button. URLs other than youtube videos will be validated. Videos that do not exist will be successfully shared, existing videos will be reported as duplicates.
+-   When a new movie is shared, a notification about it will appear in the lower right corner of the screen.
 
 ## Troubleshooting
