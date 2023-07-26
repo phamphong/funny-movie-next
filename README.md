@@ -128,3 +128,6 @@ Logged in users can:
 -   When a new movie is shared, a notification about it will appear in the lower right corner of the screen.
 
 ## Troubleshooting
+
+Cypress getting error `Your system is missing the dependency`
+Check documentation on dependencies for more information: [https://on.cypress.io/required-dependencies](https://on.cypress.io/required-dependencies)
