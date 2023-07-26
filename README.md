@@ -70,6 +70,7 @@ To ensure the security of the production environment, you should copy the file `
 #### Setting Database
 -   Docker: database is configured in `docker-compose.dev.yml` and `docker-compose.prod.yml`
 -   Local: please install [mongodb](https://www.mongodb.com/docs/manual/installation/) on local computer or use cloud service
+
 Change database connection information by changing `MONGODB_URI` variable in [.env](#configuration) file. In case of using docker-compose, change this value in the file `docker-compose.dev.yml` or `docker-compose.prod.yml`
 
 #### Running migrations
@@ -112,17 +113,18 @@ To backup and restore data please refer [here](https://www.mongodb.com/docs/manu
 -   Test separately, need to launch server before:
     - Test: `yarn e2e`
     - Test (command line only): `yarn e2e:headless`
+
 **This end-to-end test is aimed at the development environment, it will change the data in the database. Please do not use in stable environment.**
 ## Usage
 
 Non-logged in users can:
-  - See the movie list right at the homepage
-  - Log in by entering your email and password in the form in the header > click login. An account that does not exist will automatically register and log in.
+-    See the movie list right at the homepage
+-    Log in by entering your email and password in the form in the header > click login. An account that does not exist will automatically register and log in.
 
 Logged in users can:
-  - See the movie list right at the homepage
-  - Log out by clicking the logout button in the header
-  - Share the movie by clicking the "Share a movie" button in the header bar. When the sharing form appears, enter the url of the youtube video in the "Share URL" input box > press the "Share" button. URLs other than youtube videos will be validated. Videos that do not exist will be successfully shared, existing videos will be reported as duplicates.
-  - When a new movie is shared, a notification about it will appear in the lower right corner of the screen.
+-    See the movie list right at the homepage
+-    Log out by clicking the logout button in the header
+-    Share the movie by clicking the "Share a movie" button in the header bar. When the sharing form appears, enter the url of the youtube video in the "Share URL" input box > press the "Share" button. URLs other than youtube videos will be validated. Videos that do not exist will be successfully shared, existing videos will be reported as duplicates.
+-   When a new movie is shared, a notification about it will appear in the lower right corner of the screen.
 
 ## Troubleshooting
