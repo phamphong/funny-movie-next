@@ -47,19 +47,23 @@ Cypress.Commands.add('dropDBMovie', () => {
   cy.task("clearMovies")
 })
 
-Cypress.Commands.add('login', (email, password) => {
+Cypress.Commands.add('login', (email, password, success = true) => {
   let loginbtn = cy.get('button[data-cy=login-button]')
   loginbtn.should('have.text', "Login")
   cy.get('input[data-cy=login-email]').type(email)
   cy.get('input[data-cy=login-password]').type(password)
+  cy.intercept('/api/user/login').as('login')
   loginbtn.click();
+  cy.wait('@login').its('response.statusCode').should('be.oneOf', success ? [200] : [400, 401, 500])
 })
 
 Cypress.Commands.add('logout', () => {
   let logoutbtn = cy.get('button[data-cy=logout-button]')
   logoutbtn.should('have.text', "Logout")
   cy.get('input[data-cy=user-email]').should("not.be.empty")
+  cy.intercept('/api/user/logout').as('logout')
   logoutbtn.click();
+  cy.wait('@logout').its('response.statusCode').should('be.oneOf', [200])
   cy.get('button[data-cy=login-button]').should("exist");
 })
 
@@ -87,7 +91,7 @@ declare global {
     interface Chainable {
       dropDBUser(): Chainable<void>
       dropDBMovie(): Chainable<void>
-      login(email: string, password: string): Chainable<void>
+      login(email: string, password: string, success?: boolean): Chainable<void>
       logout(): Chainable<void>
       navigateToShare(): Chainable<void>
       share(url: string, errorText: string): Chainable<void>

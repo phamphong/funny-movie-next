@@ -49,18 +49,18 @@ const movies = [
 describe('Authen', () => {
   it('Login and Logout', () => {
     cy.dropDBUser()
-    cy.visit('http://localhost:3000/')
+    cy.visit('/')
     cy.login(validAccount.email, validAccount.password)
     cy.get('button[data-cy=share-button]').should("exist");
     cy.logout()
   })
   it('Login Wrong', () => {
-    cy.visit('http://localhost:3000/')
-    cy.login(validAccount.email, validAccount.wrongPassword)
+    cy.visit('/')
+    cy.login(validAccount.email, validAccount.wrongPassword, false)
     cy.get('button[data-cy=share-button]').should("not.exist");
   })
   it("Login and navigate to share", () => {
-    cy.visit('http://localhost:3000/')
+    cy.visit('/')
     cy.get('button[data-cy=share-button]').should("not.exist");
     cy.login(validAccount.email, validAccount.password)
     cy.get('button[data-cy=share-button]').should("exist");
@@ -70,11 +70,11 @@ describe('Authen', () => {
 describe('Share Movie', () => {
   it("Clear movie and check data", () => {
     cy.dropDBMovie()
-    cy.visit('http://localhost:3000/')
+    cy.visit('/')
     cy.get('[data-cy=movie-empty]').should("exist");
   })
   it("Share invalid movie", () => {
-    cy.visit('http://localhost:3000/')
+    cy.visit('/')
     cy.login(validAccount.email, validAccount.password)
     cy.navigateToShare();
     invalidMovie.map((movie) => {
@@ -83,7 +83,7 @@ describe('Share Movie', () => {
     })
   })
   it("Share list movie", () => {
-    cy.visit('http://localhost:3000/')
+    cy.visit('/')
     cy.login(validAccount.email, validAccount.password)
     cy.navigateToShare();
     movies.map((movie) => {
@@ -92,7 +92,7 @@ describe('Share Movie', () => {
     })
   })
   it("Share list movie duplicate", () => {
-    cy.visit('http://localhost:3000/')
+    cy.visit('/')
     cy.login(validAccount.email, validAccount.password)
     cy.navigateToShare();
     movies.map((movie) => {
